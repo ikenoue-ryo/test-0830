@@ -6,4 +6,5 @@ before_install:
   - docker-compose up -d --build
 
 script:
-  - python manage.py test
+  - docker-compose exec django python manage.py migrate --noinput
+  - docker-compose exec django python manage.py test
